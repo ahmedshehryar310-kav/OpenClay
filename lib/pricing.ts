@@ -1,10 +1,3 @@
-// Last updated: May 2026
-// Sources:
-//   Anthropic: https://platform.claude.com/docs/en/about-claude/pricing
-//   Google: https://ai.google.dev/gemini-api/docs/pricing
-//   xAI: https://docs.x.ai/developers/models
-//   OpenAI: https://developers.openai.com/api/docs/pricing
-
 import type {
   AnthropicModelConfig,
   GeminiModelConfig,

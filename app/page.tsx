@@ -8,7 +8,7 @@ import { estimateCostSimple } from "@/lib/costEstimator";
 import { FAQJsonLd } from "./structured-data";
 
 /* ------------------------------------------------------------------ */
-/*  Reveal on scroll                                                    */
+/*  Reveal on scroll                                                  */
 /* ------------------------------------------------------------------ */
 
 function useReveal() {
@@ -32,7 +32,7 @@ function R({ children, className = "" }: { children: React.ReactNode; className?
 }
 
 /* ------------------------------------------------------------------ */
-/*  Cost Calculator                                                     */
+/*  Cost Calculator                                                   */
 /* ------------------------------------------------------------------ */
 
 const ALL_MODELS: { id: ModelId; name: string; provider: Provider }[] = [
@@ -141,7 +141,7 @@ function CostCalculator() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Landing Page                                                        */
+/*  Landing Page                                                      */
 /* ------------------------------------------------------------------ */
 
 export default function LandingPage() {
@@ -169,7 +169,6 @@ export default function LandingPage() {
 
       {/* HERO */}
       <section className="relative overflow-hidden px-6 pt-36 pb-24 sm:pt-48 sm:pb-36">
-        {/* Subtle grid background */}
         <div className="pointer-events-none absolute inset-0" style={{backgroundImage: "linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)", backgroundSize: "80px 80px"}} />
 
         <div className="relative mx-auto max-w-4xl text-center">
@@ -414,7 +413,7 @@ export default function LandingPage() {
             <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600">Privacy & trust</p>
             <h2 className="mt-4 text-3xl font-bold text-zinc-900 sm:text-5xl">We literally can&apos;t see your data.</h2>
             <p className="mt-5 max-w-2xl text-lg text-zinc-500">
-              Your API key, your files, your results — everything stays in your browser. We&apos;re a CORS proxy. That&apos;s it.
+              Your API key, your files, your results — everything stays in your browser. Requests dispatch directly to provider endpoints. That&apos;s it.
             </p>
           </R>
 
@@ -422,7 +421,7 @@ export default function LandingPage() {
           <R className="delay-200">
             <div className="mt-14 flex flex-col items-center gap-0 sm:flex-row sm:justify-center sm:gap-0">
               <div className="rounded-xl border border-zinc-200 bg-white px-8 py-5 text-center shadow-sm">
-                <div className="text-3xl">{"\u{1F4BB}"}</div>
+                <div className="text-3xl">💻</div>
                 <div className="mt-2 text-sm font-semibold text-zinc-900">Your Browser</div>
                 <div className="text-xs text-zinc-500">Parsing + API key</div>
               </div>
@@ -432,7 +431,7 @@ export default function LandingPage() {
                 <div className="h-8 w-px bg-gradient-to-b from-zinc-200 to-zinc-300 sm:h-px sm:w-20 sm:bg-gradient-to-r" />
               </div>
               <div className="rounded-xl border border-zinc-200 bg-white px-8 py-5 text-center shadow-sm">
-                <div className="text-3xl">{"\u{1F916}"}</div>
+                <div className="text-3xl">🤖</div>
                 <div className="mt-2 text-sm font-semibold text-zinc-900">GPT / Claude / Gemini / Grok</div>
                 <div className="text-xs text-zinc-500">AI + Web search</div>
               </div>
@@ -442,172 +441,95 @@ export default function LandingPage() {
                 <div className="h-8 w-px bg-gradient-to-b from-emerald-200 to-emerald-300 sm:h-px sm:w-20 sm:bg-gradient-to-r" />
               </div>
               <div className="rounded-xl border border-zinc-200 bg-white px-8 py-5 text-center shadow-sm">
-                <div className="text-3xl">{"\u{1F4BE}"}</div>
+                <div className="text-3xl">💾</div>
                 <div className="mt-2 text-sm font-semibold text-zinc-900">Download</div>
                 <div className="text-xs text-zinc-500">Enriched file</div>
               </div>
             </div>
           </R>
-
-          {/* Privacy checklist */}
-          <R className="delay-300">
-            <div className="mx-auto mt-10 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-2 text-sm sm:grid-cols-3">
-              {[
-                "No database",
-                "No cookies",
-                "No localStorage",
-                "Key in memory only",
-                "Files stay local",
-                "100% open source",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-zinc-600">
-                  <svg className="h-4 w-4 shrink-0 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd" /></svg>
-                  {item}
-                </div>
-              ))}
-            </div>
-            <p className="mt-6 text-center text-xs text-zinc-400">
-              Don&apos;t take our word for it — <a href="https://github.com/raghav3600/Altclay" target="_blank" rel="noopener noreferrer" className="text-zinc-600 underline hover:text-zinc-900">read the source code</a>. The entire codebase is open source.
-            </p>
-          </R>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="border-t border-zinc-100 bg-zinc-50/50 px-6 py-28 sm:py-36">
-        <div className="relative mx-auto max-w-2xl text-center">
-          <R>
-            <h2 className="text-4xl font-extrabold text-zinc-900 sm:text-6xl">
-              Your data. Your key.<br /><span className="text-emerald-600">100% free.</span>
-            </h2>
-            <p className="mt-6 text-lg text-zinc-500">
-              No account. No credit card. No catch. Start enriching now.
-            </p>
-            <Link href="/tool" className="mt-10 inline-flex items-center gap-2.5 rounded-xl bg-zinc-900 px-10 py-4 text-base font-semibold text-white shadow-lg shadow-zinc-900/10 transition hover:bg-zinc-800">
-              Open OpenClay
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-            </Link>
-          </R>
-        </div>
-      </section>
-
-      {/* FEEDBACK & CONTACT */}
-      <section id="feedback" className="border-t border-zinc-100 px-6 py-20 sm:py-24">
-        <div className="mx-auto max-w-2xl text-center">
-          <R>
-            <p className="text-sm font-semibold uppercase tracking-widest text-zinc-400">Feedback</p>
-            <h2 className="mt-4 text-2xl font-bold text-zinc-900 sm:text-3xl">Have feedback or ideas?</h2>
-            <p className="mx-auto mt-3 max-w-md text-sm text-zinc-500">
-              OpenClay is built in the open. I&apos;d love to hear what&apos;s working, what&apos;s not, and what you&apos;d like to see next.
-            </p>
-            <div className="mt-8">
-              <a
-                href="https://www.linkedin.com/in/-raghav/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 rounded-xl border border-zinc-200 bg-white px-6 py-3.5 text-sm font-medium text-zinc-700 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50"
-              >
-                <svg className="h-4.5 w-4.5 text-[#0A66C2]" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                Connect with Raghav on LinkedIn
-              </a>
-            </div>
-          </R>
-        </div>
-      </section>
-
-      {/* CREATED BY */}
-      <section id="about" className="border-t border-zinc-100 bg-zinc-50/50 px-6 py-16">
-        <div className="mx-auto max-w-4xl text-center">
-          <R>
-            <p className="text-sm font-semibold uppercase tracking-widest text-zinc-400">Created by</p>
-            <h2 className="mt-4 text-2xl font-bold text-zinc-900 sm:text-3xl">Raghav</h2>
-            <p className="mx-auto mt-3 max-w-lg text-sm text-zinc-500">
-              Built OpenClay because data enrichment shouldn&apos;t cost $150/month. If you find it useful, I&apos;d love to hear from you.
-            </p>
-          </R>
-        </div>
-      </section>
-
-      {/* FAQ — SEO + GEO */}
-      <section id="faq" className="border-t border-zinc-100 px-6 py-24 sm:py-32">
-        <div className="mx-auto max-w-3xl">
+      {/* FAQ SECTION */}
+      <section id="faq" className="border-t border-zinc-100 bg-white px-6 py-24 sm:py-32">
+        <div className="mx-auto max-w-4xl">
           <FAQJsonLd />
           <R>
             <p className="text-sm font-semibold uppercase tracking-widest text-zinc-400">FAQ</p>
             <h2 className="mt-4 text-3xl font-bold text-zinc-900 sm:text-5xl">Frequently asked questions</h2>
           </R>
-          <div className="mt-12 space-y-6">
+
+          <div className="mt-12 space-y-4">
             {[
               {
-                q: "What is OpenClay?",
-                a: "OpenClay is a free, open-source alternative to Clay.com for AI-powered spreadsheet data enrichment. It uses AI models (GPT, Claude, Gemini, or Grok) combined with live web search to research and enrich each row of your spreadsheet — finding company data, contacts, news, and any custom information you describe.",
+                q: "Is OpenClay really 100% free?",
+                a: "Yes. OpenClay is open-source and free to use. There are no subscription fees, platform markups, or tier limits. You only pay your AI model provider (OpenAI, Anthropic, Google, or xAI) directly for your actual API token usage.",
               },
               {
-                q: "Is OpenClay really free?",
-                a: "Yes, OpenClay charges no platform fee — ever. The only cost is the AI provider's token usage (OpenAI, Anthropic, Google, or xAI), which you pay directly at their published rates. For example, enriching 500 rows typically costs $2–$10 in API usage depending on the model chosen.",
+                q: "How does API key and data privacy work?",
+                a: "Your API keys and uploaded spreadsheet data remain entirely inside your browser local session. Requests are dispatched directly from your browser to the respective AI provider endpoints, ensuring your raw data is never stored on external application servers.",
               },
               {
-                q: "How is OpenClay different from Clay?",
-                a: "Clay connects to 150+ data providers (Apollo, ZoomInfo, etc.) for structured lookups and costs $149–$800/month. OpenClay uses AI + live web search to research each row — similar to Clay's Claygent feature. OpenClay is great for public information, news, company overviews, and custom research. It's not ideal for verified contact emails or data requiring proprietary database access.",
+                q: "Which AI models should I use?",
+                a: "Gemini 3.1 Pro and Claude Sonnet 4.5 offer deep reasoning and live web research capabilities. For cost-sensitive or high-volume datasets, lightweight models like Gemini Flash or GPT-4o-mini provide fast and affordable enrichment.",
               },
               {
-                q: "Is my data safe with OpenClay?",
-                a: "Yes. OpenClay is privacy-first by design. Your files are parsed entirely in your browser — never uploaded to any server. Your API key is stored in browser memory only (React useState) and is never persisted. There is no database, no cookies, and no localStorage. The entire codebase is open source so you can verify these claims.",
+                q: "What file formats can I upload?",
+                a: "OpenClay supports CSV and XLSX files. File parsing and export processes take place client-side in your browser.",
               },
-              {
-                q: "What AI models does OpenClay support?",
-                a: "OpenClay supports OpenAI GPT (4.1 Nano, 5.4 Nano, 5.4 Mini, 5.4), Anthropic Claude (Haiku 4.5, Sonnet 4.5, Opus 4.5), Google Gemini (2.0 Flash, 2.5 Flash, 2.5 Flash Lite, 2.5 Pro, 3 Flash, 3.1 Flash Lite, 3.1 Pro), and xAI Grok (4.1 Fast, 4.20). All models include live web search capability for up-to-date research results.",
-              },
-              {
-                q: "What file formats does OpenClay support?",
-                a: "OpenClay supports CSV (.csv), Excel (.xlsx), and legacy Excel (.xls) files up to 10MB. Files are parsed entirely in your browser using PapaParse and SheetJS — nothing is uploaded to any server.",
-              },
-              {
-                q: "Do I need to create an account?",
-                a: "No. OpenClay requires no account, no sign-up, and no credit card. Just open the app, upload a spreadsheet, add your AI API key, and start enriching. Your key stays in browser memory and is never stored.",
-              },
-              {
-                q: "What kind of data can I enrich?",
-                a: "Anything you can describe in plain English. Common use cases include company research (CEO, funding, employee count), lead enrichment (job title, LinkedIn, recent news), university data (ranking, tuition, acceptance rate), product research (pricing, reviews, competitors), and more. OpenClay works for any dataset — not just B2B sales.",
-              },
-            ].map((faq, i) => (
-              <R key={i} className={`delay-${(i % 4) * 100}`}>
-                <details className="group rounded-2xl border border-zinc-100 bg-white transition hover:border-zinc-200 open:border-zinc-200 open:shadow-sm">
-                  <summary className="flex cursor-pointer items-center justify-between px-6 py-5 text-sm font-semibold text-zinc-900 marker:[font-size:0]">
-                    {faq.q}
-                    <svg className="h-4 w-4 shrink-0 text-zinc-400 transition group-open:rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
-                  </summary>
-                  <div className="border-t border-zinc-100 px-6 py-4 text-sm leading-relaxed text-zinc-500">
-                    {faq.a}
-                  </div>
-                </details>
+            ].map((item, idx) => (
+              <R key={idx}>
+                <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+                  <h3 className="text-base font-semibold text-zinc-900">{item.q}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-600">{item.a}</p>
+                </div>
               </R>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ABOUT SECTION */}
+      <section id="about" className="border-t border-zinc-100 bg-zinc-50/50 px-6 py-24 sm:py-32">
+        <div className="mx-auto max-w-4xl">
+          <R>
+            <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600">About OpenClay</p>
+            <h2 className="mt-4 text-3xl font-bold text-zinc-900 sm:text-5xl">Open-source AI research for everyone</h2>
+            <p className="mt-6 text-lg leading-relaxed text-zinc-500">
+              OpenClay gives sales, marketing, and growth teams access to flexible, AI-driven data enrichment without recurring platform lock-in. By utilizing your own LLM API keys and web search capabilities, you retain control over your data privacy while paying wholesale rates for AI computing.
+            </p>
+          </R>
+        </div>
+      </section>
+
+      {/* CALL TO ACTION */}
+      <section className="border-t border-zinc-100 bg-zinc-900 px-6 py-20 text-white">
+        <div className="mx-auto max-w-4xl text-center">
+          <R>
+            <h2 className="text-3xl font-bold sm:text-4xl">Ready to enrich your dataset?</h2>
+            <p className="mt-4 text-zinc-400">No account creation required. Bring your API key and start in seconds.</p>
+            <div className="mt-8">
+              <Link href="/tool" className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-semibold text-zinc-900 transition hover:bg-zinc-100">
+                Open App Now
+              </Link>
+            </div>
+          </R>
+        </div>
+      </section>
+
       {/* FOOTER */}
-      <footer className="border-t border-zinc-100 px-6 py-10">
-        <div className="mx-auto max-w-5xl">
-          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-            <div className="flex items-center gap-2 text-xs text-zinc-400">
-              <img src="/icon.svg" alt="OpenClay" className="h-5 w-5 rounded" />
-              <span>OpenClay — 100% free, open-source data enrichment.</span>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-zinc-400">
-              <Link href="/privacy" className="transition hover:text-zinc-900">Privacy</Link>
-              <Link href="/terms" className="transition hover:text-zinc-900">Terms</Link>
-              <Link href="/data" className="transition hover:text-zinc-900">Data Practices</Link>
-              <a href="https://github.com/raghav3600/Altclay" target="_blank" rel="noopener noreferrer" className="transition hover:text-zinc-900">GitHub</a>
-              <a href="https://www.linkedin.com/in/-raghav/" target="_blank" rel="noopener noreferrer" className="transition hover:text-zinc-900">LinkedIn</a>
-            </div>
+      <footer className="border-t border-zinc-100 bg-white px-6 py-8 text-xs text-zinc-400">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
+          <p>© {new Date().getFullYear()} OpenClay. Open-source data enrichment.</p>
+          <div className="flex gap-6">
+            <a href="#how" className="hover:text-zinc-600">How It Works</a>
+            <a href="#calculator" className="hover:text-zinc-600">Calculator</a>
+            <a href="#faq" className="hover:text-zinc-600">FAQ</a>
+            <a href="#about" className="hover:text-zinc-600">About</a>
           </div>
-          <p className="mt-6 text-center text-[10px] leading-relaxed text-zinc-400">
-            Disclaimer: OpenClay is provided as-is without warranty. AI-generated data may be inaccurate — always verify results. We are not responsible for the accuracy, completeness, or consequences of any enrichment output. Use at your own risk.
-          </p>
         </div>
       </footer>
+
     </div>
   );
 }
